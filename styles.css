@@ -1,0 +1,4313 @@
+:root{
+  --bg:#0c1115;
+  --panel:#141b20;
+  --panel2:#1b242a;
+
+  --text:#f4f7f5;
+  --muted:#8f9aa1;
+
+  --green:#25c16f;
+  --green2:#20df72;
+
+  --red:#ff5659;
+  --blue:#4c88ff;
+  --gold:#e0a339;
+
+  --line:#263239;
+
+  --safe-bottom:env(safe-area-inset-bottom);
+}
+
+
+/* =========================================================
+   إعدادات عامة
+========================================================= */
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  margin:0;
+  padding:0;
+
+  width:100%;
+  max-width:100%;
+
+  background:var(--bg);
+
+  overflow-x:hidden;
+
+  -webkit-text-size-adjust:100%;
+}
+
+body{
+  margin:0;
+
+  width:100%;
+  max-width:100%;
+
+  min-height:100vh;
+  min-height:100dvh;
+
+  background:var(--bg);
+
+  color:var(--text);
+
+  direction:rtl;
+
+  overflow-x:hidden;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Tahoma,
+    Arial,
+    sans-serif;
+
+  -webkit-font-smoothing:antialiased;
+}
+
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+
+button{
+  cursor:pointer;
+
+  -webkit-tap-highlight-color:transparent;
+
+  touch-action:manipulation;
+}
+
+
+img{
+  max-width:100%;
+
+  display:block;
+}
+
+
+.hidden{
+  display:none !important;
+}
+
+
+/* =========================================================
+   الشريط العلوي
+========================================================= */
+
+.topbar{
+  position:sticky;
+
+  top:0;
+
+  z-index:20;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  width:100%;
+
+  padding:
+    calc(12px + env(safe-area-inset-top))
+    16px
+    12px;
+
+  background:
+    rgba(12,17,21,.97);
+
+  border-bottom:
+    1px solid var(--line);
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+}
+
+
+.brand-title{
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  min-width:0;
+}
+
+
+.mini-logo{
+  width:58px;
+  height:58px;
+
+  min-width:58px;
+  min-height:58px;
+
+  flex:0 0 58px;
+
+  object-fit:contain;
+
+  padding:4px;
+
+  border-radius:14px;
+
+  background:#fff;
+
+  box-shadow:
+    0 4px 14px
+    rgba(0,0,0,.22);
+}
+
+
+.brand-title > div{
+  min-width:0;
+}
+
+
+.brand-title h1{
+  margin:0;
+
+  color:var(--text);
+
+  font-size:21px;
+
+  font-weight:800;
+
+  line-height:1.2;
+}
+
+
+.brand-title p{
+  margin:
+    5px
+    0
+    0;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+  line-height:1.4;
+}
+
+
+.icon-btn{
+  width:44px;
+  height:44px;
+
+  padding:8px;
+
+  display:grid;
+
+  place-items:center;
+
+  flex-shrink:0;
+
+  border:0;
+
+  border-radius:14px;
+
+  background:transparent;
+
+  color:var(--text);
+
+  font-size:25px;
+}
+
+
+.icon-btn:active{
+  background:
+    rgba(255,255,255,.04);
+}
+
+
+/* =========================================================
+   المحتوى الرئيسي
+========================================================= */
+
+.content{
+  width:100%;
+
+  max-width:760px;
+
+  margin:0 auto;
+
+  padding:
+    16px
+    14px
+    calc(
+      108px +
+      var(--safe-bottom)
+    );
+}
+
+
+.hero{
+  display:flex;
+
+  align-items:flex-end;
+
+  justify-content:space-between;
+
+  gap:14px;
+
+  margin:
+    4px
+    2px
+    18px;
+}
+
+
+.hero h2{
+  margin:0;
+
+  color:var(--text);
+
+  font-size:23px;
+
+  font-weight:900;
+}
+
+
+.hero p{
+  margin:
+    5px
+    0
+    0;
+
+  color:var(--muted);
+
+  font-size:13px;
+}
+
+
+/* =========================================================
+   بطاقات الإحصائيات
+========================================================= */
+
+.cards{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:10px;
+}
+
+
+.stat-card{
+  position:relative;
+
+  min-width:0;
+  min-height:116px;
+
+  padding:15px;
+
+  overflow:hidden;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #151e23,
+      #11181c
+    );
+
+  box-shadow:
+    0 7px 20px
+    rgba(0,0,0,.10);
+}
+
+
+.stat-card-top{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:8px;
+}
+
+
+.stat-card .label{
+  color:var(--muted);
+
+  font-size:12px;
+
+  line-height:1.45;
+}
+
+
+.stat-card .value{
+  display:block;
+
+  margin-top:13px;
+
+  font-size:24px;
+
+  font-weight:900;
+
+  line-height:1.1;
+}
+
+
+.stat-card .unit{
+  color:var(--muted);
+
+  font-size:12px;
+}
+
+
+.stat-description{
+  display:block;
+
+  margin-top:5px;
+
+  color:var(--muted);
+
+  font-size:10px;
+}
+
+
+.green{
+  color:var(--green) !important;
+}
+
+
+.red{
+  color:var(--red) !important;
+}
+
+
+.blue{
+  color:var(--blue) !important;
+}
+
+
+.gold{
+  color:var(--gold) !important;
+}
+
+
+/* =========================================================
+   أيقونات بطاقات الرئيسية
+========================================================= */
+
+.dashboard-icon{
+  width:33px;
+  height:33px;
+
+  display:grid;
+
+  place-items:center;
+
+  flex-shrink:0;
+
+  border-radius:10px;
+}
+
+
+.dashboard-icon svg{
+  width:19px;
+  height:19px;
+
+  fill:none;
+
+  stroke:currentColor;
+
+  stroke-width:1.8;
+
+  stroke-linecap:round;
+
+  stroke-linejoin:round;
+}
+
+
+.green-icon{
+  color:var(--green);
+
+  background:
+    rgba(37,193,111,.09);
+}
+
+
+.red-icon{
+  color:var(--red);
+
+  background:
+    rgba(240,90,90,.08);
+}
+
+
+.blue-icon{
+  color:var(--blue);
+
+  background:
+    rgba(76,136,255,.08);
+}
+
+
+.gold-icon{
+  color:var(--gold);
+
+  background:
+    rgba(224,163,57,.08);
+}
+
+
+/* =========================================================
+   رؤوس الأقسام
+========================================================= */
+
+.section-head{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  margin:
+    24px
+    3px
+    11px;
+}
+
+
+.section-head > div{
+  display:flex;
+
+  flex-direction:column;
+
+  gap:3px;
+}
+
+
+.section-head h3{
+  margin:0;
+
+  color:var(--text);
+
+  font-size:18px;
+
+  font-weight:900;
+}
+
+
+.section-note{
+  color:var(--muted);
+
+  font-size:11px;
+
+  line-height:1.5;
+}
+
+
+.link-btn{
+  padding:6px;
+
+  border:0;
+
+  background:none;
+
+  color:var(--green);
+
+  font-size:12px;
+
+  font-weight:700;
+}
+
+
+/* =========================================================
+   البطاقات العامة
+========================================================= */
+
+.booking-card,
+.expense-row,
+.device-card,
+.invoice-row,
+.settings-card{
+  margin-bottom:10px;
+
+  padding:14px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:17px;
+
+  background:var(--panel);
+
+  box-shadow:
+    0 5px 15px
+    rgba(0,0,0,.06);
+}
+/* =========================================================
+   الحجوزات
+========================================================= */
+
+.booking-top{
+  display:flex;
+
+  align-items:flex-start;
+
+  justify-content:space-between;
+
+  gap:12px;
+}
+
+
+.booking-name{
+  color:var(--text);
+
+  font-size:16px;
+
+  font-weight:900;
+
+  line-height:1.4;
+}
+
+
+.booking-meta{
+  margin-top:5px;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+  line-height:1.8;
+}
+
+
+.amount{
+  flex-shrink:0;
+
+  color:var(--text);
+
+  font-size:17px;
+
+  font-weight:900;
+
+  text-align:left;
+}
+
+
+.amount small{
+  display:block;
+
+  margin-top:5px;
+
+  color:var(--muted);
+
+  font-size:9px;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   حالة الدفع
+========================================================= */
+
+.badge{
+  display:inline-block;
+
+  margin-top:8px;
+
+  padding:5px 9px;
+
+  border-radius:999px;
+
+  font-size:10px;
+
+  font-weight:700;
+}
+
+
+.badge.paid{
+  color:#77e6a4;
+
+  background:#163e2b;
+}
+
+
+.badge.partial{
+  color:#ffd680;
+
+  background:#463718;
+}
+
+
+.badge.unpaid{
+  color:#ff8b8b;
+
+  background:#4b2020;
+}
+
+
+/* =========================================================
+   أزرار البطاقات
+========================================================= */
+
+.card-actions{
+  display:flex;
+
+  gap:8px;
+
+  margin-top:12px;
+}
+
+
+.small-btn{
+  flex:1;
+
+  min-height:40px;
+
+  padding:9px 8px;
+
+  border:1px solid var(--line);
+
+  border-radius:11px;
+
+  background:var(--panel2);
+
+  color:var(--text);
+}
+
+
+.small-btn.primary{
+  border-color:var(--green);
+
+  background:var(--green);
+
+  color:#07130c;
+
+  font-weight:900;
+}
+
+
+.empty{
+  padding:42px 12px;
+
+  color:var(--muted);
+
+  text-align:center;
+
+  font-size:13px;
+}
+
+
+.compact-empty{
+  padding:24px 12px;
+}
+
+
+/* =========================================================
+   البحث والفلترة
+========================================================= */
+
+.bookings-tools{
+  display:grid;
+
+  gap:10px;
+
+  margin-bottom:14px;
+}
+
+
+.booking-search-box{
+  position:relative;
+
+  display:flex;
+
+  align-items:center;
+
+  min-height:46px;
+
+  padding:0 12px;
+
+  background:#10171b;
+
+  border:1px solid var(--line);
+
+  border-radius:14px;
+}
+
+
+.booking-search-box input{
+  width:100%;
+
+  height:44px;
+
+  padding:0 34px 0 4px;
+
+  border:0;
+
+  outline:0;
+
+  background:transparent;
+
+  color:var(--text);
+
+  font-size:13px;
+}
+
+
+.booking-search-box input::placeholder{
+  color:#66747b;
+}
+
+
+.search-icon{
+  position:absolute;
+
+  right:11px;
+
+  width:19px;
+  height:19px;
+
+  color:#7f8b91;
+}
+
+
+.search-icon svg{
+  width:100%;
+  height:100%;
+
+  fill:none;
+
+  stroke:currentColor;
+
+  stroke-width:1.8;
+
+  stroke-linecap:round;
+
+  stroke-linejoin:round;
+}
+
+
+.booking-filter-tabs{
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:7px;
+}
+
+
+.booking-filter-tabs button{
+  min-height:38px;
+
+  padding:8px;
+
+  border:1px solid var(--line);
+
+  border-radius:11px;
+
+  background:#11181c;
+
+  color:#818d93;
+
+  font-size:11px;
+
+  font-weight:700;
+}
+
+
+.booking-filter-tabs button.active{
+  border-color:rgba(37,193,111,.45);
+
+  background:rgba(37,193,111,.09);
+
+  color:var(--green);
+}
+
+
+.count-badge{
+  min-width:31px;
+  height:27px;
+
+  padding:0 9px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:999px;
+
+  color:var(--green);
+
+  background:rgba(37,193,111,.08);
+
+  border:1px solid rgba(37,193,111,.18);
+
+  font-size:11px;
+
+  font-weight:800;
+}
+
+
+/* =========================================================
+   المصاريف والفواتير
+========================================================= */
+
+.expense-row,
+.invoice-row{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+}
+
+
+.expense-row > div:first-child,
+.invoice-row > div:first-child{
+  min-width:0;
+}
+
+
+.expense-row strong,
+.invoice-row strong{
+  color:var(--text);
+
+  font-size:15px;
+
+  line-height:1.45;
+}
+
+
+.expense-row small,
+.invoice-row small{
+  display:block;
+
+  margin-top:4px;
+
+  color:var(--muted);
+
+  font-size:10px;
+
+  line-height:1.55;
+}
+
+
+.expense-actions{
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  margin-top:8px;
+}
+
+
+.edit-mini,
+.delete-mini{
+  border:0;
+
+  background:transparent;
+
+  padding:0;
+
+  font-size:11px;
+
+  font-weight:700;
+}
+
+
+.edit-mini{
+  color:var(--green);
+}
+
+
+.delete-mini{
+  color:var(--red);
+}
+
+
+/* =========================================================
+   الأجهزة
+========================================================= */
+
+.device-card{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+}
+
+
+.device-card strong{
+  color:var(--text);
+
+  font-size:15px;
+
+  font-weight:800;
+}
+
+
+.device-card small{
+  color:var(--muted);
+
+  font-size:11px;
+}
+
+
+/* =========================================================
+   الإعدادات
+========================================================= */
+
+.settings-card{
+  display:grid;
+
+  gap:4px;
+}
+
+
+.settings-card strong{
+  color:var(--text);
+
+  font-size:14px;
+}
+
+
+.settings-card small{
+  color:var(--muted);
+
+  font-size:11px;
+}
+
+
+/* =========================================================
+   القائمة السفلية
+========================================================= */
+
+.bottom-nav{
+  position:fixed;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  z-index:40;
+
+  display:grid;
+
+  grid-template-columns:repeat(4,1fr);
+
+  padding:
+    8px
+    8px
+    calc(
+      8px +
+      var(--safe-bottom)
+    );
+
+  background:rgba(12,17,21,.98);
+
+  border-top:1px solid var(--line);
+
+  backdrop-filter:blur(20px);
+
+  -webkit-backdrop-filter:blur(20px);
+}
+
+
+.nav-item{
+  border:0;
+
+  background:none;
+
+  color:#758188;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:3px;
+
+  min-height:53px;
+
+  padding:4px 0;
+
+  transition:
+    color .18s ease,
+    transform .14s ease;
+}
+
+
+.nav-item span{
+  font-size:21px;
+}
+
+
+.nav-item b{
+  font-size:10px;
+
+  font-weight:600;
+}
+
+
+.nav-item.active{
+  color:var(--green);
+}
+
+
+.nav-item:active{
+  transform:scale(.94);
+}
+
+
+/* =========================================================
+   أيقونات القائمة
+========================================================= */
+
+.nav-svg,
+.menu-svg{
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  flex-shrink:0;
+}
+
+
+.nav-svg{
+  width:24px;
+  height:24px;
+
+  margin-bottom:3px;
+}
+
+
+.menu-svg{
+  width:22px;
+  height:22px;
+
+  color:#9aa6ad;
+}
+
+
+.nav-svg svg,
+.menu-svg svg,
+.top-svg{
+  width:100%;
+  height:100%;
+
+  fill:none;
+
+  stroke:currentColor;
+
+  stroke-width:1.8;
+
+  stroke-linecap:round;
+
+  stroke-linejoin:round;
+}
+
+
+.top-svg{
+  width:24px;
+  height:24px;
+}
+
+
+.nav-item.active .nav-svg{
+  filter:drop-shadow(
+    0 0 5px rgba(37,193,111,.30)
+  );
+}
+
+
+/* =========================================================
+   زر الإضافة الأخضر
+========================================================= */
+
+.fab{
+  position:fixed;
+
+  left:50%;
+
+  bottom:calc(
+    72px +
+    var(--safe-bottom)
+  );
+
+  z-index:45;
+
+  transform:translateX(-50%);
+
+  width:60px;
+  height:60px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:50%;
+
+  border:5px solid var(--bg);
+
+  background:
+    linear-gradient(
+      145deg,
+      #2ad27b,
+      #20bb69
+    );
+
+  color:#06130b;
+
+  font-size:34px;
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+
+.fab:active{
+  transform:
+    translateX(-50%)
+    scale(.96);
+}
+/* =========================================================
+   الخلفيات للنوافذ
+========================================================= */
+
+.sheet-backdrop,
+.modal-backdrop{
+  position:fixed;
+
+  inset:0;
+
+  background:
+    rgba(0,0,0,.62);
+
+  backdrop-filter:
+    blur(2px);
+
+  -webkit-backdrop-filter:
+    blur(2px);
+}
+
+
+.sheet-backdrop{
+  z-index:50;
+}
+
+
+.modal-backdrop{
+  z-index:60;
+}
+
+
+/* =========================================================
+   القائمة الجانبية
+========================================================= */
+
+.side-sheet{
+  position:fixed;
+
+  top:0;
+  right:0;
+  bottom:0;
+
+  z-index:51;
+
+  width:min(82vw,330px);
+
+  padding:
+    calc(
+      18px +
+      env(safe-area-inset-top)
+    )
+    15px
+    20px;
+
+  background:#11181c;
+
+  border-left:
+    1px solid var(--line);
+
+  box-shadow:
+    -15px
+    0
+    30px
+    rgba(0,0,0,.26);
+
+  overflow-y:auto;
+}
+
+
+.sheet-head{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:10px;
+
+  margin-bottom:18px;
+}
+
+
+.sheet-logo{
+  width:auto;
+
+  height:68px;
+
+  max-width:190px;
+
+  object-fit:contain;
+
+  padding:7px;
+
+  background:#fff;
+
+  border-radius:12px;
+}
+
+
+.side-sheet > button,
+.import-label{
+  width:100%;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  padding:16px 8px;
+
+  border:0;
+
+  border-bottom:
+    1px solid var(--line);
+
+  background:transparent;
+
+  color:var(--text);
+
+  text-align:right;
+
+  font-size:13px;
+}
+
+
+.side-sheet > button:active{
+  color:var(--green);
+}
+
+
+/* =========================================================
+   النوافذ المنبثقة
+========================================================= */
+
+.modal{
+  position:fixed;
+
+  left:10px;
+  right:10px;
+
+  bottom:
+    calc(
+      10px +
+      var(--safe-bottom)
+    );
+
+  z-index:61;
+
+  width:auto;
+
+  max-width:640px;
+
+  max-height:88vh;
+
+  margin:auto;
+
+  padding:16px;
+
+  overflow:auto;
+
+  background:#12191e;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:24px;
+
+  box-shadow:
+    0 18px 55px
+    rgba(0,0,0,.48);
+}
+
+
+.modal-head{
+  position:sticky;
+
+  top:-16px;
+
+  z-index:4;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:10px;
+
+  padding:5px 0 9px;
+
+  background:#12191e;
+}
+
+
+.modal-head h2{
+  margin:0;
+
+  color:var(--text);
+
+  font-size:19px;
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   النماذج
+========================================================= */
+
+.form-grid{
+  display:grid;
+
+  gap:11px;
+}
+
+
+.form-grid label{
+  display:grid;
+
+  gap:6px;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+  font-weight:600;
+}
+
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea{
+  width:100%;
+
+  padding:12px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:12px;
+
+  outline:0;
+
+  background:#0c1216;
+
+  color:var(--text);
+
+  font-size:13px;
+}
+
+
+.form-grid input:focus,
+.form-grid select:focus,
+.form-grid textarea:focus{
+  border-color:
+    rgba(37,193,111,.75);
+
+  box-shadow:
+    0 0 0 2px
+    rgba(37,193,111,.06);
+}
+
+
+.form-grid textarea{
+  resize:vertical;
+}
+
+
+.form-row{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:10px;
+}
+
+
+.submit-btn{
+  width:100%;
+
+  min-height:44px;
+
+  margin-top:6px;
+
+  padding:12px;
+
+  border:0;
+
+  border-radius:13px;
+
+  background:var(--green);
+
+  color:#06130b;
+
+  font-weight:900;
+}
+
+
+.danger-btn{
+  color:#ff9b9b;
+
+  background:#4a1f1f;
+
+  border:
+    1px solid #6e2c2c;
+}
+
+
+/* =========================================================
+   تفاصيل الحجز
+========================================================= */
+
+.detail-list{
+  display:grid;
+
+  gap:9px;
+}
+
+
+.detail-list > div{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  padding:11px 12px;
+
+  background:#10171b;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:12px;
+}
+
+
+.detail-list span{
+  color:var(--muted);
+
+  font-size:11px;
+}
+
+
+.detail-list strong{
+  color:var(--text);
+
+  font-size:13px;
+
+  text-align:left;
+}
+
+
+.delete-full{
+  width:100%;
+
+  min-height:42px;
+
+  margin-top:10px;
+
+  padding:10px;
+
+  border:
+    1px solid rgba(240,90,90,.25);
+
+  border-radius:12px;
+
+  background:
+    rgba(240,90,90,.07);
+
+  color:var(--red);
+
+  font-weight:800;
+}
+
+
+/* =========================================================
+   إشعار Toast
+========================================================= */
+
+.toast{
+  position:fixed;
+
+  left:50%;
+
+  bottom:
+    calc(
+      108px +
+      var(--safe-bottom)
+    );
+
+  z-index:100;
+
+  transform:
+    translateX(-50%);
+
+  max-width:
+    calc(100vw - 32px);
+
+  padding:10px 14px;
+
+  border-radius:12px;
+
+  background:#e8f8ef;
+
+  color:#123524;
+
+  font-size:12px;
+
+  font-weight:800;
+
+  text-align:center;
+
+  box-shadow:
+    0 10px 30px
+    rgba(0,0,0,.40);
+}
+
+
+/* =========================================================
+   التقارير
+========================================================= */
+
+.report-title{
+  margin:4px 2px 16px;
+}
+
+
+.report-title h2{
+  margin:0;
+
+  color:var(--text);
+
+  font-size:23px;
+
+  font-weight:900;
+}
+
+
+.report-title p{
+  margin:5px 0 0;
+
+  color:var(--muted);
+
+  font-size:12px;
+}
+
+
+/* =========================================================
+   فلاتر التقارير
+========================================================= */
+
+.report-filters{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:10px;
+
+  margin-bottom:14px;
+}
+
+
+.report-filters label{
+  display:grid;
+
+  gap:6px;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+  font-weight:600;
+}
+
+
+.report-filters select{
+  width:100%;
+
+  min-height:42px;
+
+  padding:9px 10px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:12px;
+
+  outline:0;
+
+  background:#10171b;
+
+  color:var(--text);
+
+  font-size:12px;
+}
+
+
+.report-filters select:focus{
+  border-color:
+    rgba(37,193,111,.65);
+}
+
+
+/* =========================================================
+   صندوق التقرير
+========================================================= */
+
+.report-box{
+  padding:16px;
+
+  background:var(--panel);
+
+  border:
+    1px solid var(--line);
+
+  border-radius:18px;
+
+  box-shadow:
+    0 7px 20px
+    rgba(0,0,0,.08);
+}
+
+
+/* =========================================================
+   شريط النسب
+========================================================= */
+
+.bar-line{
+  display:grid;
+
+  grid-template-columns:
+    82px
+    1fr
+    60px;
+
+  align-items:center;
+
+  gap:8px;
+
+  margin:13px 0;
+
+  font-size:11px;
+}
+
+
+.track{
+  height:10px;
+
+  overflow:hidden;
+
+  border-radius:999px;
+
+  background:#222d33;
+}
+
+
+.fill{
+  height:100%;
+
+  border-radius:999px;
+}
+
+
+/* =========================================================
+   قائمة الأشهر
+========================================================= */
+
+.months-list{
+  display:grid;
+
+  gap:9px;
+}
+
+
+.month-report-card{
+  width:100%;
+
+  min-height:68px;
+
+  padding:11px 12px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:14px;
+
+  background:#121a1f;
+
+  color:var(--text);
+
+  text-align:right;
+}
+
+
+.month-report-card:active{
+  border-color:
+    rgba(37,193,111,.45);
+
+  background:#14221b;
+}
+
+
+.month-report-card strong{
+  display:block;
+
+  color:var(--text);
+
+  font-size:13px;
+
+  font-weight:800;
+}
+
+
+.month-report-card small{
+  display:block;
+
+  margin-top:4px;
+
+  color:var(--muted);
+
+  font-size:10px;
+}
+
+
+.month-report-money{
+  text-align:left;
+
+  flex-shrink:0;
+}
+
+
+.month-report-money > span{
+  display:block;
+
+  font-size:14px;
+
+  font-weight:900;
+}
+
+
+.month-report-money small{
+  line-height:1.6;
+}
+/* =========================================================
+   مسحوبات الشركاء - النسخة النهائية
+========================================================= */
+
+.partners-withdrawals-section{
+  margin-top:24px;
+
+  padding:0;
+}
+
+
+.partners-withdrawals-head{
+  margin:0 0 16px;
+
+  text-align:right;
+}
+
+
+.partners-withdrawals-head h3{
+  margin:0;
+
+  color:#f4f7f5;
+
+  font-size:22px;
+
+  font-weight:900;
+}
+
+
+.partners-withdrawals-head small{
+  display:block;
+
+  margin-top:6px;
+
+  color:#8f9aa1;
+
+  font-size:12px;
+}
+
+
+/* =========================================================
+   المربعان
+========================================================= */
+
+.partner-withdrawal-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:8px;
+
+  width:100%;
+}
+
+
+/* =========================================================
+   البطاقة
+========================================================= */
+
+.partner-withdrawal-card{
+  position:relative;
+
+  width:100%;
+  min-width:0;
+
+  height:264px;
+
+  padding:
+    13px
+    7px
+    10px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:flex-start;
+
+  border:
+    1px solid
+    rgba(32,223,114,.34);
+
+  border-radius:18px;
+
+  background:
+    linear-gradient(
+      150deg,
+      #101b21 0%,
+      #091419 100%
+    );
+
+  color:#fff;
+
+  overflow:hidden;
+
+  box-shadow:
+    0 8px 18px
+    rgba(0,0,0,.22);
+
+  transition:
+    transform .14s ease,
+    border-color .14s ease;
+}
+
+
+.partner-withdrawal-card:active{
+  transform:scale(.975);
+
+  border-color:#20df72;
+}
+
+
+/* =========================================================
+   الأيقونة الذهبية
+========================================================= */
+
+.partner-withdrawal-icon{
+  position:relative;
+
+  width:62px;
+  height:62px;
+
+  min-width:62px;
+  min-height:62px;
+
+  margin:
+    0
+    auto
+    9px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:50%;
+
+  border:
+    2.5px solid
+    #efa92f;
+
+  background:
+    radial-gradient(
+      circle at 35% 25%,
+      #247044 0%,
+      #145b37 20%,
+      #0a4329 45%,
+      #052f1e 72%,
+      #031a11 100%
+    );
+
+  box-shadow:
+    inset 5px 5px 9px
+    rgba(255,255,255,.06),
+
+    inset -7px -8px 14px
+    rgba(0,0,0,.55),
+
+    0 5px 9px
+    rgba(0,0,0,.35);
+
+  overflow:hidden;
+}
+
+
+.partner-withdrawal-icon::before{
+  content:none;
+
+  display:none;
+}
+
+
+.partner-withdrawal-icon::after{
+  content:"";
+
+  position:absolute;
+
+  inset:4px;
+
+  border-radius:50%;
+
+  border:
+    1px solid
+    rgba(255,216,115,.55);
+}
+
+
+.partner-withdrawal-icon svg{
+  position:relative;
+
+  z-index:5;
+
+  width:27px;
+  height:27px;
+
+  fill:none;
+
+  stroke:#f0ad31;
+
+  stroke-width:2.1;
+
+  stroke-linecap:round;
+
+  stroke-linejoin:round;
+}
+
+
+/* =========================================================
+   اسم الشريك
+========================================================= */
+
+.partner-withdrawal-name{
+  width:100%;
+
+  margin:0;
+
+  color:#fff;
+
+  font-size:16px;
+
+  font-weight:900;
+
+  text-align:center;
+}
+
+
+.partner-withdrawal-name::before,
+.partner-withdrawal-name::after{
+  content:none;
+
+  display:none;
+}
+
+
+/* =========================================================
+   الخط الأخضر
+========================================================= */
+
+.partner-withdrawal-card::after{
+  content:"";
+
+  position:absolute;
+
+  top:118px;
+
+  left:15px;
+  right:15px;
+
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+
+      transparent 0%,
+
+      rgba(32,223,114,.28) 15%,
+
+      #20df72 50%,
+
+      rgba(32,223,114,.28) 85%,
+
+      transparent 100%
+    );
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   الماسة
+========================================================= */
+
+.partner-withdrawal-card::before{
+  content:"";
+
+  position:absolute;
+
+  top:112px;
+  left:50%;
+
+  width:9px;
+  height:9px;
+
+  transform:
+    translateX(-50%)
+    rotate(45deg);
+
+  background:#0a171c;
+
+  border:
+    1.6px solid
+    #20df72;
+
+  box-shadow:
+    0 0 5px
+    rgba(32,223,114,.18);
+}
+
+
+/* =========================================================
+   الرقم الأحمر
+========================================================= */
+
+.partner-withdrawal-total{
+  position:absolute;
+
+  top:174px;
+
+  left:5px;
+  right:5px;
+
+  margin:0;
+
+  color:#ff5659;
+
+  font-size:18px;
+
+  font-weight:900;
+
+  text-align:center;
+}
+
+
+/* =========================================================
+   إجمالي المسحوبات
+========================================================= */
+
+.partner-withdrawal-total::before{
+  content:"إجمالي المسحوبات";
+
+  position:absolute;
+
+  left:0;
+  right:0;
+
+  bottom:34px;
+
+  color:#8f9aa1;
+
+  font-size:9.5px;
+
+  font-weight:500;
+
+  text-align:center;
+
+  white-space:nowrap;
+}
+
+
+.partner-withdrawal-total::after{
+  content:none;
+
+  display:none;
+}
+
+
+/* =========================================================
+   عبارة عرض السجل
+========================================================= */
+
+.partner-withdrawal-hint{
+  position:absolute;
+
+  top:206px;
+
+  left:0;
+  right:0;
+
+  margin:0;
+
+  color:#7d898f;
+
+  font-size:9px;
+
+  text-align:center;
+}
+
+
+/* =========================================================
+   زر السهم
+========================================================= */
+
+.partner-withdrawal-open,
+.partner-withdrawal-btn{
+  position:absolute;
+
+  left:50%;
+
+  bottom:8px;
+
+  transform:
+    translateX(-50%);
+
+  width:31px;
+  height:31px;
+
+  min-width:31px;
+  min-height:31px;
+
+  margin:0;
+
+  padding:0;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border:
+    1.3px solid
+    rgba(32,223,114,.55);
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 28%,
+      #143128,
+      #081b16 55%,
+      #05120f 100%
+    );
+
+  color:transparent;
+
+  font-size:0;
+
+  overflow:hidden;
+}
+
+
+.partner-withdrawal-open::before,
+.partner-withdrawal-btn::before{
+  content:none;
+
+  display:none;
+}
+
+
+.partner-withdrawal-open::after,
+.partner-withdrawal-btn::after{
+  content:"›";
+
+  position:absolute;
+
+  top:50%;
+  left:50%;
+
+  transform:
+    translate(-50%,-53%);
+
+  color:#20df72;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size:24px;
+
+  line-height:1;
+}
+
+
+/* =========================================================
+   تثبيت اللون الأحمر في السجل
+========================================================= */
+
+.partner-history-summary strong,
+.partner-history-amount{
+  color:#ff5659;
+}
+
+
+/* =========================================================
+   ضبط الآيفون
+========================================================= */
+
+@media(max-width:430px){
+
+  .partner-withdrawal-grid{
+    gap:8px;
+  }
+
+
+  .partner-withdrawal-card{
+    height:260px;
+  }
+
+
+  .partner-withdrawal-icon{
+    width:60px;
+    height:60px;
+
+    min-width:60px;
+    min-height:60px;
+  }
+
+
+  .partner-withdrawal-icon svg{
+    width:26px;
+    height:26px;
+  }
+
+
+  .partner-withdrawal-card::after{
+    top:115px;
+  }
+
+
+  .partner-withdrawal-card::before{
+    top:109px;
+  }
+
+
+  .partner-withdrawal-total{
+    top:170px;
+  }
+
+
+  .partner-withdrawal-hint{
+    top:202px;
+  }
+
+}
+/* =========================================================
+   سجل مسحوبات الشريك
+========================================================= */
+
+.partner-history{
+  display:grid;
+
+  gap:12px;
+}
+
+
+.partner-history-summary{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  padding:14px 15px;
+
+  border:
+    1px solid
+    rgba(37,193,111,.22);
+
+  border-radius:16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #152128,
+      #0e171c
+    );
+}
+
+
+.partner-history-summary span{
+  color:var(--muted);
+
+  font-size:11px;
+
+  line-height:1.5;
+}
+
+
+.partner-history-summary strong{
+  color:var(--red);
+
+  font-size:20px;
+
+  font-weight:900;
+
+  white-space:nowrap;
+}
+
+
+/* =========================================================
+   قائمة السجل
+========================================================= */
+
+.partner-history-list{
+  display:grid;
+
+  gap:9px;
+}
+
+
+.partner-history-row{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  padding:13px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.06);
+
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #151e23,
+      #11181c
+    );
+}
+
+
+.partner-history-main{
+  min-width:0;
+
+  flex:1;
+}
+
+
+.partner-history-amount{
+  display:block;
+
+  color:var(--red);
+
+  font-size:17px;
+
+  font-weight:900;
+
+  line-height:1.2;
+}
+
+
+.partner-history-date{
+  display:block;
+
+  margin-top:4px;
+
+  color:var(--muted);
+
+  font-size:10px;
+
+  line-height:1.5;
+}
+
+
+.partner-history-note{
+  display:block;
+
+  margin-top:5px;
+
+  max-width:220px;
+
+  overflow:hidden;
+
+  text-overflow:ellipsis;
+
+  white-space:nowrap;
+
+  color:#77858c;
+
+  font-size:10px;
+}
+
+
+.partner-history-actions{
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  flex-shrink:0;
+}
+
+
+/* =========================================================
+   زر إضافة مسحوب من السجل
+========================================================= */
+
+.add-partner-withdrawal-btn{
+  width:100%;
+
+  min-height:44px;
+
+  margin-top:3px;
+
+  padding:12px;
+
+  border:
+    1px solid
+    rgba(37,193,111,.35);
+
+  border-radius:13px;
+
+  background:
+    rgba(37,193,111,.07);
+
+  color:var(--green);
+
+  font-size:12px;
+
+  font-weight:900;
+}
+
+
+.add-partner-withdrawal-btn:active{
+  background:
+    rgba(37,193,111,.12);
+}
+
+
+/* =========================================================
+   تحديد الشريك داخل النموذج
+========================================================= */
+
+.withdrawal-partner-display{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  padding:12px 13px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:13px;
+
+  background:#11191d;
+}
+
+
+.withdrawal-partner-display span{
+  color:var(--muted);
+
+  font-size:11px;
+}
+
+
+.withdrawal-partner-display strong{
+  color:var(--gold);
+
+  font-size:15px;
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   ملاحظة نموذج المسحوبات
+========================================================= */
+
+.withdrawal-form-note{
+  padding:10px 12px;
+
+  border:
+    1px solid
+    rgba(224,163,57,.18);
+
+  border-radius:12px;
+
+  background:
+    rgba(224,163,57,.05);
+
+  color:var(--muted);
+
+  font-size:10px;
+
+  line-height:1.7;
+}
+
+
+.withdrawal-submit{
+  background:
+    linear-gradient(
+      145deg,
+      #e7aa3b,
+      #d99a2e
+    ) !important;
+
+  color:#171006 !important;
+}
+
+
+/* =========================================================
+   صف المسحوب
+========================================================= */
+
+.withdrawal-row{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  padding:13px;
+
+  margin-bottom:9px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #151d22,
+      #11181c
+    );
+
+  border:
+    1px solid
+    rgba(224,163,57,.20);
+
+  border-radius:15px;
+}
+
+
+.withdrawal-person{
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  min-width:0;
+}
+
+
+.partner-icon{
+  width:38px;
+  height:38px;
+
+  min-width:38px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:50%;
+
+  background:
+    rgba(224,163,57,.10);
+
+  border:
+    1px solid
+    rgba(224,163,57,.25);
+
+  color:var(--gold);
+
+  font-size:17px;
+}
+
+
+.withdrawal-person > div{
+  min-width:0;
+}
+
+
+.withdrawal-person strong{
+  display:block;
+
+  color:var(--text);
+
+  font-size:14px;
+
+  font-weight:800;
+}
+
+
+.withdrawal-person small{
+  display:block;
+
+  margin-top:4px;
+
+  color:var(--muted);
+
+  font-size:10px;
+}
+
+
+.withdrawal-note{
+  max-width:170px;
+
+  overflow:hidden;
+
+  text-overflow:ellipsis;
+
+  white-space:nowrap;
+}
+
+
+.withdrawal-side{
+  flex-shrink:0;
+
+  text-align:left;
+
+  white-space:nowrap;
+}
+
+
+.withdrawal-side > strong{
+  color:var(--red);
+
+  font-size:16px;
+
+  font-weight:900;
+}
+
+
+.withdrawal-side small{
+  display:block;
+
+  margin-top:4px;
+
+  color:var(--muted);
+
+  font-size:9px;
+}
+
+
+/* =========================================================
+   أزرار تعديل وحذف المسحوب
+========================================================= */
+
+.withdrawal-actions{
+  display:flex;
+
+  justify-content:flex-end;
+
+  gap:11px;
+
+  margin-top:7px;
+}
+
+
+.withdrawal-actions button{
+  padding:0;
+
+  border:0;
+
+  background:none;
+
+  font-size:10px;
+
+  font-weight:700;
+}
+
+
+.withdrawal-edit{
+  color:var(--green);
+}
+
+
+.withdrawal-delete{
+  color:var(--red);
+}
+
+
+/* =========================================================
+   زر إضافة مسحوب
+========================================================= */
+
+.add-withdrawal-btn{
+  width:100%;
+
+  min-height:44px;
+
+  margin-top:8px;
+
+  padding:11px 12px;
+
+  border:
+    1px dashed
+    rgba(224,163,57,.55);
+
+  border-radius:13px;
+
+  background:
+    rgba(224,163,57,.05);
+
+  color:var(--gold);
+
+  font-size:12px;
+
+  font-weight:900;
+}
+
+
+.add-withdrawal-btn:active{
+  background:
+    rgba(224,163,57,.10);
+}
+
+
+/* =========================================================
+   صندوق معلومات المسحوبات
+========================================================= */
+
+.withdrawals-info{
+  display:grid;
+
+  gap:5px;
+
+  margin-top:12px;
+
+  padding:13px;
+
+  background:var(--panel);
+
+  border:
+    1px solid var(--line);
+
+  border-radius:15px;
+}
+
+
+.withdrawals-info strong{
+  color:var(--text);
+
+  font-size:12px;
+}
+
+
+.withdrawals-info span{
+  color:var(--muted);
+
+  font-size:10px;
+
+  line-height:1.7;
+}
+
+
+/* =========================================================
+   الفاتورة - منطقة المعاينة
+========================================================= */
+
+.invoice-preview-scroll{
+  width:100%;
+
+  overflow:auto;
+
+  padding:4px 0 8px;
+
+  -webkit-overflow-scrolling:touch;
+}
+
+
+/* =========================================================
+   ورقة A4
+========================================================= */
+
+.invoice-a4{
+  position:relative;
+
+  width:794px;
+  height:1123px;
+
+  min-width:794px;
+  min-height:1123px;
+
+  margin:0 auto;
+
+  background:#fff;
+
+  color:#162029;
+
+  direction:rtl;
+
+  overflow:hidden;
+
+  font-family:
+    Tahoma,
+    Arial,
+    sans-serif;
+
+  box-shadow:
+    0 12px 35px
+    rgba(0,0,0,.26);
+}
+
+
+.invoice-frame{
+  position:relative;
+
+  width:100%;
+  height:100%;
+
+  padding:46px 48px 40px;
+
+  background:#fff;
+
+  overflow:hidden;
+}
+
+
+/* =========================================================
+   رأس الفاتورة
+========================================================= */
+
+.invoice-header{
+  position:relative;
+
+  min-height:190px;
+
+  text-align:center;
+
+  border-bottom:
+    2px solid
+    #1d6743;
+
+  padding-bottom:20px;
+}
+
+
+.invoice-logo{
+  display:block;
+
+  width:120px;
+  height:90px;
+
+  margin:0 auto 8px;
+
+  object-fit:contain;
+}
+
+
+.invoice-brand-en{
+  color:#164f37;
+
+  font-size:25px;
+
+  font-weight:900;
+
+  letter-spacing:.5px;
+}
+
+
+.invoice-brand-ar{
+  margin-top:3px;
+
+  color:#34443d;
+
+  font-size:15px;
+
+  font-weight:700;
+}
+
+
+.invoice-title{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:12px;
+
+  margin-top:15px;
+
+  color:#1e6544;
+}
+
+
+.invoice-title strong{
+  font-size:28px;
+
+  font-weight:900;
+}
+
+
+.invoice-title span{
+  color:#68a487;
+
+  font-size:17px;
+
+  letter-spacing:-3px;
+}
+/* =========================================================
+   معلومات الفاتورة
+========================================================= */
+
+.invoice-info{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:10px;
+
+  margin-top:20px;
+
+  padding:14px 16px;
+
+  border:
+    1px solid
+    #d8e4de;
+
+  border-radius:9px;
+
+  background:#f8fbf9;
+}
+
+
+.invoice-info-row{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:6px;
+
+  min-width:0;
+
+  font-size:12px;
+
+  white-space:nowrap;
+}
+
+
+.invoice-info-icon{
+  color:#1d6743;
+
+  font-size:15px;
+}
+
+
+.invoice-info-label{
+  color:#52615a;
+
+  font-weight:700;
+}
+
+
+.invoice-info-value{
+  color:#17241e;
+
+  font-weight:900;
+}
+
+
+.invoice-number-value{
+  direction:ltr;
+}
+
+
+/* =========================================================
+   معلومات العميل
+========================================================= */
+
+.invoice-customer{
+  margin-top:17px;
+
+  padding:17px 18px;
+
+  border:
+    1px solid
+    #d9e2dd;
+
+  border-radius:9px;
+
+  background:#fff;
+}
+
+
+.customer-main{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    10px
+    26px;
+}
+
+
+.customer-extra{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    10px
+    26px;
+
+  margin-top:12px;
+
+  padding-top:12px;
+
+  border-top:
+    1px solid
+    #e5ece8;
+}
+
+
+.customer-row{
+  display:flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  min-width:0;
+
+  color:#2d3b34;
+
+  font-size:12px;
+}
+
+
+.customer-row strong{
+  flex-shrink:0;
+
+  color:#506058;
+}
+
+
+.customer-row b{
+  min-width:0;
+
+  color:#15231d;
+
+  font-weight:900;
+
+  overflow-wrap:anywhere;
+}
+
+
+.customer-symbol{
+  color:#1f6846;
+
+  font-size:12px;
+}
+
+
+.customer-phone{
+  direction:ltr;
+}
+
+
+/* =========================================================
+   جدول الفاتورة
+========================================================= */
+
+.invoice-products{
+  width:100%;
+
+  margin-top:18px;
+
+  border-collapse:collapse;
+
+  table-layout:fixed;
+
+  font-size:12px;
+}
+
+
+.invoice-products th{
+  padding:11px 7px;
+
+  border:
+    1px solid
+    #1d6743;
+
+  background:#1d6743;
+
+  color:#fff;
+
+  font-weight:800;
+
+  text-align:center;
+}
+
+
+.invoice-products td{
+  padding:13px 7px;
+
+  border:
+    1px solid
+    #d7e0db;
+
+  color:#293630;
+
+  text-align:center;
+
+  vertical-align:middle;
+}
+
+
+.invoice-products tbody tr:nth-child(even){
+  background:#f7faf8;
+}
+
+
+.invoice-products .product-title{
+  text-align:right;
+}
+
+
+.invoice-products .product-title strong{
+  color:#18261f;
+
+  font-size:12px;
+}
+
+
+.invoice-no{
+  width:45px;
+}
+
+
+.invoice-qty{
+  width:72px;
+}
+
+
+.invoice-price{
+  width:110px;
+}
+
+
+/* =========================================================
+   الجزء السفلي من الفاتورة
+========================================================= */
+
+.invoice-lower{
+  display:grid;
+
+  grid-template-columns:
+    1fr
+    290px;
+
+  gap:20px;
+
+  margin-top:18px;
+}
+
+
+.invoice-words-side{
+  position:relative;
+
+  min-height:250px;
+}
+
+
+.amount-words-label{
+  display:block;
+
+  margin-bottom:7px;
+
+  color:#4c5b54;
+
+  font-size:12px;
+}
+
+
+.amount-words-box{
+  min-height:58px;
+
+  padding:11px 12px;
+
+  border:
+    1px solid
+    #d9e2dd;
+
+  border-radius:8px;
+
+  background:#fafcfb;
+
+  color:#26372f;
+
+  font-size:11px;
+
+  line-height:1.7;
+}
+
+
+/* =========================================================
+   الختم
+========================================================= */
+
+.stamp-holder{
+  position:absolute;
+
+  right:0;
+  bottom:0;
+
+  width:190px;
+  height:150px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+}
+
+
+.invoice-full-stamp{
+  max-width:185px;
+  max-height:145px;
+
+  object-fit:contain;
+}
+
+
+/* =========================================================
+   الإجماليات
+========================================================= */
+
+.invoice-totals{
+  align-self:start;
+
+  overflow:hidden;
+
+  border:
+    1px solid
+    #d3ddd8;
+
+  border-radius:8px;
+}
+
+
+.total-row{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  min-height:46px;
+
+  padding:10px 13px;
+
+  border-bottom:
+    1px solid
+    #dfe6e2;
+
+  background:#fff;
+
+  color:#394840;
+
+  font-size:12px;
+}
+
+
+.total-row:last-child{
+  border-bottom:0;
+}
+
+
+.total-row strong{
+  color:#16251e;
+
+  font-size:13px;
+
+  font-weight:900;
+}
+
+
+.remaining-number{
+  color:#bc3535 !important;
+}
+
+
+.grand-total{
+  background:#1d6743;
+
+  color:#fff;
+
+  font-weight:900;
+}
+
+
+.grand-total span,
+.grand-total strong{
+  color:#fff;
+}
+
+
+/* =========================================================
+   التذييل
+========================================================= */
+
+.invoice-green-footer{
+  position:absolute;
+
+  left:48px;
+  right:48px;
+  bottom:38px;
+
+  min-height:45px;
+
+  padding:10px 18px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:15px;
+
+  border-radius:7px;
+
+  background:#1d6743;
+
+  color:#fff;
+
+  font-size:11px;
+
+  font-weight:700;
+}
+
+
+/* =========================================================
+   موجات الصوت
+========================================================= */
+
+.sound-wave{
+  position:absolute;
+
+  top:135px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:4px;
+
+  opacity:.12;
+
+  pointer-events:none;
+}
+
+
+.wave-left{
+  left:14px;
+}
+
+
+.wave-right{
+  right:14px;
+}
+
+
+.sound-wave i{
+  display:block;
+
+  width:3px;
+
+  border-radius:3px;
+
+  background:#1d6743;
+}
+
+
+.sound-wave i:nth-child(1),
+.sound-wave i:nth-child(15){
+  height:12px;
+}
+
+.sound-wave i:nth-child(2),
+.sound-wave i:nth-child(14){
+  height:18px;
+}
+
+.sound-wave i:nth-child(3),
+.sound-wave i:nth-child(13){
+  height:26px;
+}
+
+.sound-wave i:nth-child(4),
+.sound-wave i:nth-child(12){
+  height:34px;
+}
+
+.sound-wave i:nth-child(5),
+.sound-wave i:nth-child(11){
+  height:42px;
+}
+
+.sound-wave i:nth-child(6),
+.sound-wave i:nth-child(10){
+  height:50px;
+}
+
+.sound-wave i:nth-child(7),
+.sound-wave i:nth-child(9){
+  height:58px;
+}
+
+.sound-wave i:nth-child(8){
+  height:66px;
+}
+
+
+/* =========================================================
+   أزرار الفاتورة
+========================================================= */
+
+.invoice-actions{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:8px;
+
+  margin-top:12px;
+}
+
+
+.invoice-actions button{
+  min-height:42px;
+
+  padding:10px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:11px;
+
+  background:var(--panel2);
+
+  color:var(--text);
+
+  font-size:11px;
+
+  font-weight:700;
+}
+
+
+.invoice-actions .invoice-share-btn{
+  border-color:
+    rgba(37,193,111,.45);
+
+  background:
+    rgba(37,193,111,.09);
+
+  color:var(--green);
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   ضبط الجوال والآيفون
+========================================================= */
+
+@media(max-width:600px){
+
+  input,
+  select,
+  textarea{
+    font-size:16px;
+  }
+
+
+  .modal{
+    left:8px;
+    right:8px;
+
+    bottom:
+      calc(
+        8px +
+        env(safe-area-inset-bottom)
+      );
+
+    max-height:90dvh;
+
+    border-radius:22px;
+  }
+
+
+  .side-sheet{
+    width:min(86vw,340px);
+  }
+
+}
+
+
+@media(max-width:430px){
+
+  .content{
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+
+  .cards{
+    gap:9px;
+  }
+
+
+  .stat-card{
+    min-height:112px;
+
+    padding:13px;
+
+    border-radius:17px;
+  }
+
+
+  .stat-card .label{
+    font-size:11px;
+  }
+
+
+  .stat-card .value{
+    font-size:22px;
+  }
+
+
+  .dashboard-icon{
+    width:31px;
+    height:31px;
+  }
+
+
+  .dashboard-icon svg{
+    width:18px;
+    height:18px;
+  }
+
+
+  .form-row{
+    grid-template-columns:1fr;
+  }
+
+
+  .report-filters{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   معاينة الفاتورة على الجوال
+========================================================= */
+
+@media(max-width:850px){
+
+  .invoice-preview-scroll{
+    overflow-x:auto;
+
+    direction:ltr;
+  }
+
+
+  .invoice-a4{
+    transform-origin:top left;
+  }
+
+}
+
+
+/* =========================================================
+   إخفاء شريط التمرير مع بقاء التمرير
+========================================================= */
+
+.side-sheet,
+.modal,
+.invoice-preview-scroll{
+  scrollbar-width:none;
+}
+
+
+.side-sheet::-webkit-scrollbar,
+.modal::-webkit-scrollbar,
+.invoice-preview-scroll::-webkit-scrollbar{
+  width:0;
+
+  height:0;
+
+  display:none;
+}
+
+
+/* =========================================================
+   الطباعة
+========================================================= */
+
+@media print{
+
+  @page{
+    size:A4;
+
+    margin:0;
+  }
+
+
+  html,
+  body{
+    width:210mm;
+
+    height:297mm;
+
+    margin:0 !important;
+
+    padding:0 !important;
+
+    background:#fff !important;
+
+    overflow:visible !important;
+  }
+
+
+  body *{
+    visibility:hidden;
+  }
+
+
+  #invoicePaper,
+  #invoicePaper *{
+    visibility:visible;
+  }
+
+
+  #invoicePaper{
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:210mm !important;
+    height:297mm !important;
+
+    min-width:210mm !important;
+    min-height:297mm !important;
+
+    margin:0 !important;
+
+    box-shadow:none !important;
+
+    transform:none !important;
+  }
+
+
+  .invoice-frame{
+    width:100% !important;
+    height:100% !important;
+  }
+
+
+  .invoice-actions{
+    display:none !important;
+  }
+
+
+  .modal,
+  .invoice-preview-scroll{
+    position:static !important;
+
+    width:auto !important;
+
+    max-width:none !important;
+
+    max-height:none !important;
+
+    padding:0 !important;
+
+    margin:0 !important;
+
+    overflow:visible !important;
+
+    border:0 !important;
+
+    box-shadow:none !important;
+
+    background:#fff !important;
+  }
+
+}
+
+
+/* =========================================================
+   الانتقالات
+========================================================= */
+
+.booking-card,
+.stat-card,
+.partner-withdrawal-card,
+.month-report-card,
+.small-btn,
+.submit-btn,
+.nav-item{
+  transition:
+    transform .14s ease,
+    border-color .14s ease,
+    background-color .14s ease,
+    opacity .14s ease;
+}
+
+
+/* =========================================================
+   النهاية
+========================================================= */
+/* =========================================================
+   إصلاح نهائي لعرض التطبيق على iPhone
+========================================================= */
+
+html{
+  width:100% !important;
+  max-width:100% !important;
+  overflow-x:hidden !important;
+}
+
+body{
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  overflow-x:hidden !important;
+}
+
+.topbar{
+  width:100% !important;
+  max-width:100% !important;
+  left:0 !important;
+  right:0 !important;
+}
+
+.content{
+  width:100% !important;
+  max-width:760px !important;
+  min-width:0 !important;
+
+  margin-left:auto !important;
+  margin-right:auto !important;
+
+  overflow:visible !important;
+}
+
+.bottom-nav{
+  width:100% !important;
+  max-width:100% !important;
+
+  left:0 !important;
+  right:0 !important;
+}
+
+
+/* الفاتورة لا يسمح لها بتوسيع الصفحة */
+
+.invoice-preview-scroll{
+  width:100% !important;
+  max-width:100% !important;
+
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+
+  contain:inline-size;
+}
+
+
+/* =========================================================
+   إصلاح الآيفون
+========================================================= */
+
+@media (max-width:600px){
+
+  .topbar{
+    padding-left:14px !important;
+    padding-right:14px !important;
+  }
+
+  .mini-logo{
+    width:58px !important;
+    height:58px !important;
+
+    min-width:58px !important;
+    max-width:58px !important;
+
+    object-fit:contain !important;
+  }
+
+  .content{
+    width:100% !important;
+
+    padding-left:12px !important;
+    padding-right:12px !important;
+
+    padding-bottom:
+      calc(
+        115px +
+        env(safe-area-inset-bottom)
+      ) !important;
+  }
+
+  .partner-withdrawal-grid{
+    width:100% !important;
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr)) !important;
+
+    gap:8px !important;
+  }
+
+  .partner-withdrawal-card{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+  }
+
+}
+
+
+/* =========================================================
+   حماية الصفحة من أي عنصر عريض
+========================================================= */
+
+main,
+section,
+header,
+footer,
+.cards,
+.partner-withdrawal-grid,
+.partners-withdrawals-section{
+  max-width:100%;
+}
+/* =========================================================
+   إصلاح الشعار العلوي نهائياً
+========================================================= */
+
+.top-logo{
+  display:block !important;
+
+  width:58px !important;
+  height:58px !important;
+
+  min-width:58px !important;
+  min-height:58px !important;
+
+  max-width:58px !important;
+  max-height:58px !important;
+
+  flex:0 0 58px !important;
+
+  object-fit:contain !important;
+
+  padding:4px !important;
+
+  margin:0 !important;
+
+  border-radius:14px !important;
+
+  background:#ffffff !important;
+
+  box-shadow:
+    0 4px 14px
+    rgba(0,0,0,.22) !important;
+}
+
+
+/* =========================================================
+   إصلاح أيقونات SVG الموجودة في index
+========================================================= */
+
+.svg-icon{
+  width:24px !important;
+  height:24px !important;
+
+  fill:none !important;
+  stroke:currentColor !important;
+
+  stroke-width:1.8 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+
+.nav-icon{
+  width:24px !important;
+  height:24px !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+
+.nav-icon svg{
+  width:24px !important;
+  height:24px !important;
+
+  fill:none !important;
+  stroke:currentColor !important;
+
+  stroke-width:1.8 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+
+.side-icon{
+  width:22px !important;
+  height:22px !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  flex-shrink:0 !important;
+}
+
+
+.side-icon svg{
+  width:22px !important;
+  height:22px !important;
+
+  fill:none !important;
+  stroke:currentColor !important;
+
+  stroke-width:1.8 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+
+.fab-icon{
+  width:30px !important;
+  height:30px !important;
+
+  fill:none !important;
+  stroke:currentColor !important;
+
+  stroke-width:2 !important;
+  stroke-linecap:round !important;
+}
+
+
+/* =========================================================
+   تثبيت الشريط العلوي
+========================================================= */
+
+.topbar{
+  width:100% !important;
+  max-width:100% !important;
+
+  min-height:83px !important;
+
+  overflow:hidden !important;
+}
+
+
+.brand-title{
+  display:flex !important;
+
+  align-items:center !important;
+
+  gap:10px !important;
+
+  min-width:0 !important;
+}
+
+
+.brand-title > div{
+  min-width:0 !important;
+  flex:1 !important;
+}
+
+
+/* =========================================================
+   حماية نهائية للجوال
+========================================================= */
+
+html,
+body{
+  width:100% !important;
+  max-width:100% !important;
+
+  overflow-x:hidden !important;
+}
+
+
+@media(max-width:430px){
+
+  .top-logo{
+    width:58px !important;
+    height:58px !important;
+
+    min-width:58px !important;
+    min-height:58px !important;
+
+    max-width:58px !important;
+    max-height:58px !important;
+  }
+
+}
+/* =========================================================
+   أيقونات التقارير فقط
+========================================================= */
+
+.report-stat-icon{
+  width:42px;
+  height:42px;
+
+  min-width:42px;
+  min-height:42px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:12px;
+
+  flex-shrink:0;
+}
+
+.report-stat-icon svg{
+  width:24px;
+  height:24px;
+
+  fill:none;
+
+  stroke:currentColor;
+  stroke-width:2;
+
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.report-income-icon{
+  color:#25c16f;
+  background:rgba(37,193,111,.12);
+}
+
+.report-expense-icon{
+  color:#ff5659;
+  background:rgba(255,86,89,.12);
+}
+
+.report-profit-icon{
+  color:#4c88ff;
+  background:rgba(76,136,255,.12);
+}
+
+.report-remaining-icon{
+  color:#e0a339;
+  background:rgba(224,163,57,.12);
+}
+/* =========================================================
+   أيقونات بطاقات التقارير فقط
+========================================================= */
+
+.report-page .stat-card-top,
+.reports-page .stat-card-top,
+.report-stats .stat-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.report-page .dashboard-icon,
+.reports-page .dashboard-icon,
+.report-stats .dashboard-icon {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+}
+
+.report-page .dashboard-icon svg,
+.reports-page .dashboard-icon svg,
+.report-stats .dashboard-icon svg {
+  width: 25px !important;
+  height: 25px !important;
+
+  display: block !important;
+
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 2 !important;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* الإيرادات */
+
+.report-page .green-icon,
+.reports-page .green-icon,
+.report-stats .green-icon {
+  color: #25c16f !important;
+  background: rgba(37, 193, 111, 0.12);
+}
+
+
+/* المصاريف */
+
+.report-page .red-icon,
+.reports-page .red-icon,
+.report-stats .red-icon {
+  color: #ff5b61 !important;
+  background: rgba(255, 91, 97, 0.12);
+}
+
+
+/* صافي الربح */
+
+.report-page .blue-icon,
+.reports-page .blue-icon,
+.report-stats .blue-icon {
+  color: #4c88ff !important;
+  background: rgba(76, 136, 255, 0.12);
+}
+
+
+/* المتبقي */
+
+.report-page .gold-icon,
+.reports-page .gold-icon,
+.report-stats .gold-icon {
+  color: #e0a339 !important;
+  background: rgba(224, 163, 57, 0.12);
+}
+/* VERA package cards */
+.vera-package-card{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.vera-package-items{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.vera-package-items small{
+  display:block;
+  line-height:1.8;
+}
