@@ -4311,3 +4311,25 @@ body{
   display:block;
   line-height:1.8;
 }
+
+/* ===== VERA LOGO - بدون إطار أو خلفية ===== */
+
+.brand-logo,
+.header-logo,
+.app-logo {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.brand-logo img,
+.header-logo img,
+.app-logo img {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  object-fit: contain;
+}
